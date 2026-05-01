@@ -39,7 +39,7 @@ const { posts } = Astro.props;
     <!-- {filteredPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
     {
       posts.map((post) => (
-        <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
       ))
     }
   </ul>
