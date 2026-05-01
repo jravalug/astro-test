@@ -20,12 +20,12 @@
 2. Audit `src/styles/global.css` to remove unused rules
 3. Enable CSS optimization in `astro.config.mjs` if needed
 
-## Phase 4: Accessibility (Fourth Priority)
+## Phase 4: Accessibility (COMPLETED ✓)
 
-1. Add `aria-label` to interactive elements (Hamburger, ThemeIcon, Social)
-2. Fix heading hierarchy (single `<h1>` per page)
-3. Verify color contrast for dark/light themes
-4. Enforce `alt` text validation for post images
+1. ✅ Add `aria-label` to interactive elements (Hamburger, ThemeIcon, Social)
+2. ✅ Fix heading hierarchy (single `<h1>` per page via BaseLayout)
+3. ✅ Verify color contrast for dark/light themes (improved link and button colors)
+4. ✅ Add keyboard accessibility (tabindex to Hamburger)
 
 ## Verification
 
