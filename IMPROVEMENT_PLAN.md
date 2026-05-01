@@ -1,11 +1,11 @@
 # Astro Project Improvement Plan
 
-## Phase 1: SEO (First Priority)
+## Phase 1: SEO (COMPLETED ✓)
 
-1. Install `@astrojs/sitemap` integration
-2. Add sitemap to `astro.config.mjs`
-3. Add Open Graph + Twitter meta tags to `src/layouts/BaseLayout.astro`
-4. (Optional) Create reusable SEO component
+1. ✅ Install `@astrojs/sitemap` integration
+2. ✅ Add sitemap to `astro.config.mjs`
+3. ✅ Add Open Graph + Twitter meta tags to `src/layouts/BaseLayout.astro`
+4. ✅ Upgrade to Astro v6 + fix breaking changes (ViewTransitions → ClientRouter, RSS API)
 
 ## Phase 2: Code Quality (Second Priority)
 
