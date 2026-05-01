@@ -7,7 +7,7 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p class="mb-4 text-gray-700 dark:text-gray-300">Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+  <p class="mb-4 text-body dark:text-gray-300">Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
   <div class="space-y-2">
     {
       allPosts.map((post) => (

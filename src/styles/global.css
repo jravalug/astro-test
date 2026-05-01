@@ -3,9 +3,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-nav: #ff9776;
-  --color-tag-bg: #f8fcfd;
-  --color-link: #003d7a;
+  --color-nav: #FF6B35;
+  --color-tag-bg: #EFF6FF;
+  --color-link: #1D4ED8;
+  --color-body: #4B5563;
+  --color-body-subtle: #6B7280;
 }
 
 html {
