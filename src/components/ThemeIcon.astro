@@ -30,16 +30,19 @@
     }
   };
 
-  // Toggle theme on button click
+  // Toggle theme on button click - simplified approach
   const setupToggle = () => {
     const button = document.getElementById("themeToggle");
-    if (button && !button.dataset.listener) {
-      button.addEventListener("click", () => {
-        const isDark = document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      });
-      button.dataset.listener = "true";
-    }
+    if (!button) return;
+
+    // Remove existing listener by cloning (avoids duplicates on re-init)
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+    
+    newButton.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
   };
 
   // Initialize on first load
