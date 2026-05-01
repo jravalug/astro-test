@@ -4,10 +4,12 @@ import Hamburger from "./Hamburger.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header>
-  <nav>
-    <Hamburger />
-    <ThemeIcon />
+<header class="max-w-4xl mx-auto px-4">
+  <nav class="flex items-center justify-between py-4">
+    <div class="flex items-center gap-4">
+      <Hamburger />
+      <ThemeIcon />
+    </div>
     <Navigation />
   </nav>
 </header>

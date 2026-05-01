@@ -22,25 +22,22 @@ const skills = [
 const happy = true;
 const finished = true;
 const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section class="about-me">
-    <h2>... ¡y mi nuevo sitio Astro!</h2>
-    <p>
+  <section class="max-w-2xl">
+    <h2 class="text-2xl font-semibold mb-4">... ¡y mi nuevo sitio Astro!</h2>
+    <p class="mb-4 text-gray-700 dark:text-gray-300">
       Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
       página de mi sitio web, ¡y es la primera que he construido yo mismo!
     </p>
-    <p>
+    <p class="mb-6 text-gray-700 dark:text-gray-300">
       Este sitio se irá actualizando a medida que vaya completando más partes
       del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
     </p>
 
-    <h3>Mi identidad</h3>
-    <ul class="identity">
+    <h3 class="text-xl font-semibold mb-2">Mi identidad</h3>
+    <ul class="space-y-2 mb-6">
       <li>Me llamo {identity.firstName}.</li>
       <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
       {
@@ -52,19 +49,19 @@ const fontWeight = "bold";
         )
       }
     </ul>
-    <h3>Mis habilidades</h3>
-    <ul class="skills">
+    <h3 class="text-xl font-semibold mb-2">Mis habilidades</h3>
+    <ul class="flex flex-wrap gap-2 mb-6">
       {
         skills.map((skill) => (
-          <li class="skill" style={{ color: skillColor, fontWeight }}>
+          <li class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded">
             {skill}
           </li>
         ))
       }
     </ul>
 
-    <p>Estado:</p>
-    <ul class="state">
+    <p class="font-semibold mb-2">Estado:</p>
+    <ul class="space-y-2">
       {happy && <li>Estoy feliz de aprender Astro!</li>}
       {finished && <li>He terminado este tutorial!</li>}
       {

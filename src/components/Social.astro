@@ -2,13 +2,6 @@
 const { platform, username } = Astro.props;
 ---
 
-<a href={`https://www.${platform}.com/${username}`} aria-label={`Visit our ${platform} profile`}>{platform}</a>
-
-<style>
-  a {
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: #3a1778;
-    text-decoration: none;
-  }
-</style>
+<a href={`https://www.${platform}.com/${username}`} aria-label={`Visit our ${platform} profile`} class="px-4 py-2 text-white bg-[#3a1778] no-underline rounded hover:bg-[#2d1260]">
+  {platform}
+</a>

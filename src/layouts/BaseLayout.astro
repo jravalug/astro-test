@@ -26,12 +26,14 @@ const pageUrl = Astro.url.href;
     <meta name="twitter:description" content={description} />
     <ClientRouter />
   </head>
-  <body>
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
     <Header />
 
-    <h1 transition:animate="slide">{pageTitle}</h1>
+    <h1 class="text-4xl font-bold mt-4 mb-4" transition:animate="slide">{pageTitle}</h1>
 
-    <slot />
+    <main class="max-w-4xl mx-auto px-4">
+      <slot />
+    </main>
 
     <Footer />
 

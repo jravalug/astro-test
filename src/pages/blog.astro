@@ -7,10 +7,12 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
-  {
-    allPosts.map((post) => (
-      <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
-    ))
-  }
+  <p class="mb-4 text-gray-700 dark:text-gray-300">Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+  <div class="space-y-2">
+    {
+      allPosts.map((post) => (
+        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
+      ))
+    }
+  </div>
 </BaseLayout>
