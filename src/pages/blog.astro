@@ -11,7 +11,7 @@ const allPosts = await getCollection("posts");
   <div class="space-y-2">
     {
       allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
+        <BlogPost url={`/posts/${post.id}`} title={post.data.title} author={post.data.author} pubDate={post.data.pubDate.toLocaleDateString()} />
       ))
     }
   </div>

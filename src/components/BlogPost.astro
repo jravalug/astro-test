@@ -1,7 +1,8 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, pubDate, author } = Astro.props;
 ---
 
-<ul class="mb-2">
-  <li><a href={url} class="text-link hover:underline">{title}</a></li>
-</ul>
+<div class="mb-2 p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+  <a href={url} class="text-link hover:underline font-semibold">{title}</a>
+  {author && <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{author} - {pubDate}</p>}
+</div>

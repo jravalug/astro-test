@@ -1,16 +1,22 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import { fade } from "astro:transitions";
 const { frontmatter } = Astro.props;
+const pageDescription = frontmatter.description;
+const pageUrl = Astro.url.href;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} description={pageDescription}>
+  <meta property="og:image" content={new URL(frontmatter.image.url, Astro.site).href} />
+  <meta name="twitter:image" content={new URL(frontmatter.image.url, Astro.site).href} />
+  <meta property="article:published_time" content={frontmatter.pubDate.toISOString()} />
   <p class="text-gray-600 dark:text-gray-300">{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p transition:animate={fade({ duration: "2s" })}>
     <em class="text-gray-700 dark:text-gray-200">{frontmatter.description}</em>
   </p>
   <p class="text-gray-800 dark:text-gray-200">Escrito por: <a href="/about" class="text-link hover:underline">{frontmatter.author}</a></p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} loading="lazy" decoding="async" class="rounded-lg mb-4" />
+  <Image src={frontmatter.image.url} width={300} inferSize={true} alt={frontmatter.image.alt} loading="lazy" decoding="async" class="rounded-lg mb-4" />
   <div class="flex flex-wrap gap-2">
     {
       frontmatter.tags.map((tag) => (

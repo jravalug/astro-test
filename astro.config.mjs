@@ -16,4 +16,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    remotePatterns: [
+      { protocol: "https" },
+      { hostname: "docs.astro.build" },
+    ],
+  },
 });
