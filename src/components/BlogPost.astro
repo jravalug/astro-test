@@ -1,9 +1,15 @@
 ---
-const { title, url, pubDate, author, description } = Astro.props;
+import { Image } from "astro:assets";
+const { title, url, pubDate, author, description, image } = Astro.props;
 ---
 
-<div class="mb-2 p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-  {url && <h3 class="text-lg font-semibold"><a href={url} class="text-link hover:underline">{title}</a></h3>}
-  {author && <p class="text-sm text-body-subtle dark:text-gray-400 mt-1">{author} - {pubDate}</p>}
-  {description && <p class="text-sm text-body-subtle mt-1">{description}</p>}
+<div class="mb-2 p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition flex gap-4">
+  {image && (
+    <Image src={image.url} width={200} inferSize={true} alt={image.alt} loading="lazy" decoding="async" class="aspect-video object-cover rounded-lg self-start w-full max-w-[200px]" />
+  )}
+  <div class="flex-1">
+    {url && <h3 class="text-lg font-semibold"><a href={url} class="text-link hover:underline">{title}</a></h3>}
+    {author && <p class="text-sm text-body-subtle dark:text-gray-400 mt-1">{author} - {pubDate}</p>}
+    {description && <p class="text-sm text-body-subtle mt-1">{description}</p>}
+  </div>
 </div>
