@@ -1,20 +1,24 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPost from '../../components/BlogPost.astro'
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts');
+  const allPosts = await getCollection("posts");
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag),
+    );
     return {
-      params: {tag},
-      props: {posts:filteredPosts}
-    }
-  })
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
   // return [
   //   { params: { tag: "astro" }, props: {posts: allPosts} },
   //   { params: { tag: "éxitos" }, props: {posts: allPosts} },
@@ -28,10 +32,15 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
+
 <BaseLayout pageTitle={tag}>
   <p>Posts etiquetados con <span style="color: green">{tag}</span></p>
   <ul>
     <!-- {filteredPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
-    {posts.map(post => <BlogPost url={`/posts/${post.slug}`} title={post.data.title}/>)}
+    {
+      posts.map((post) => (
+        <BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+      ))
+    }
   </ul>
 </BaseLayout>
